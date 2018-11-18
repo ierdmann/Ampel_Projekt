@@ -48,7 +48,7 @@ while schalter.value != True:
 	a_v_rot.turn_off()
 	a_f_rot.turn_off()
 	a_f_gruen.turn_off()
-	input.schalter()
+	input.schalter.value()
 
 	
 	if schalter.value == True:
