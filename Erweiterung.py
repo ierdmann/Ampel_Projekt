@@ -67,7 +67,7 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 
-elif schalter.value == False:
+else schalter.value == False:
 	def countdown(n):
 		while n > 0:
 			print(time.sleep(1),"Zahl",n)
