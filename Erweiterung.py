@@ -22,7 +22,7 @@ schalter = pfd.input_pins[7]
 
 def status_anzeigen():
 	print("TODO")
-def countdown(n):
+
 # Ampel ausschalten, wenn Programm beendet wird
 def ausschalten():
 	a_v_gruen.turn_off()
@@ -75,7 +75,7 @@ if schalter.value == True:
 	print("Fussgaenger-phase beendet")
 
 else schalter.value == False:
-	
+	def countdown(n):
 		while n > 0:
 			print(time.sleep(1),"Zahl",n)
 			n = n - 1
