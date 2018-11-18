@@ -18,6 +18,9 @@ a_f_gruen = pfd.output_pins[3]
 a_f_rot = pfd.output_pins[4]
 schalter = pfd.input_pins[7]
 
+def n():
+	time.sleep(n)
+
 def status_anzeigen():
 	print("TODO")
 
