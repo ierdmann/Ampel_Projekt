@@ -1,5 +1,5 @@
 # Ampel Projekt
-
+#Versuch einen Countdown zu integrieren
 import time
 import pifacedigitalio
 import atexit
