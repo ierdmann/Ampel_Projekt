@@ -67,7 +67,7 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 
-else:
+else schalter.value != True:
 	print("warten")
 	time.sleep(10)
 	print("schlafen")
