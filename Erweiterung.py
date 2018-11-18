@@ -73,7 +73,7 @@ while schalter.value != True:
 		time.sleep(3)
 		print("schlafen")
 		
-		while == "schlafen":
+		while "schlafen" == True:
 			a_v_gruen.turn_off()
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
