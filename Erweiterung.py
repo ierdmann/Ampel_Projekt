@@ -90,6 +90,7 @@ else:
 	a_v_rot.turn_off()
 	a_f_rot.turn_off()
 	a_f_gruen.turn_off()
+	time.sleep(n)
 		
 	
 
