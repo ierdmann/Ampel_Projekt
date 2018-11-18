@@ -47,6 +47,7 @@ while True:
 
 	
 	if schalter.value == True:
+		n = 0
 		print("Schalter aktiviert")
 		time.sleep(3)
 		a_v_gelb.turn_on()
@@ -72,6 +73,7 @@ while True:
 		print("Fussgaenger-phase beendet")
 	
 	elif schalter.value != True:
+		n = 10
 		print("warten")
 		time.sleep(3)
 		print("schlafen")
@@ -82,10 +84,7 @@ while True:
 		a_f_gruen.turn_off()
 		time.sleep(n)
 
-		if schalter.value != True:
-			n = 10
-		elif schalter.value == True:
-			n = 0
+		
 	
 
 		
