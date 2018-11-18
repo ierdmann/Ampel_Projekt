@@ -36,7 +36,7 @@ atexit.register(ausschalten)
 
 # Hauptprogramm
 
-while True:
+while schalter.value == True:
 #	print("Initialisiere Durchfahrt Verkehr")
 	a_v_gruen.turn_on()
 	a_v_gelb.turn_off()
