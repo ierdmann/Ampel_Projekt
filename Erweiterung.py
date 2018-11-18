@@ -84,7 +84,7 @@ while schalter.value == True:
 		a_f_gruen.turn_off()
 		time.sleep(n)
 
-else schalter.value != True:
+else:
 	a_v_gruen.turn_off()
 	a_v_gelb.turn_off()
 	a_v_rot.turn_off()
