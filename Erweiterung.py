@@ -1,4 +1,3 @@
-#Erweiterung der Ampelsteuerung
 # Ampel Projekt
 
 import time
@@ -17,7 +16,6 @@ a_v_rot = pfd.output_pins[7]
 # f = Fussgaenger
 a_f_gruen = pfd.output_pins[3]
 a_f_rot = pfd.output_pins[4]
-
 schalter = pfd.input_pins[7]
 
 def status_anzeigen():
@@ -33,10 +31,6 @@ def ausschalten():
 
 atexit.register(ausschalten)
 
-#Countdown initialisieren
-
-
-
 # Hauptprogramm
 
 while True:
@@ -48,7 +42,6 @@ while True:
 	a_f_gruen.turn_off()
 
 	
-		
 	if schalter.value == True:
 		print("Schalter aktiviert")
 		time.sleep(3)
