@@ -41,7 +41,8 @@ while schalter.value != True:
 	a_f_rot.turn_on()
 	a_f_gruen.turn_off()
 	print("warten")
-	time.sleep(10)
+	time.sleep(1)
+	read.schalter()
 	print("schlafen")
 
 	
