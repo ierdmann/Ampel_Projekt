@@ -40,6 +40,9 @@ while True:
 	a_v_rot.turn_off()
 	a_f_rot.turn_on()
 	a_f_gruen.turn_off()
+	print("warten")
+	time.sleep(10)
+	print("schlafen")
 
 	
 	if schalter.value == True:
@@ -68,11 +71,9 @@ while True:
 		print("Fussgaenger-phase beendet")
 
 	elif schalter.value != True:
-		print("warten")
-		time.sleep(10)
-		print("schlafen")
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
 		a_f_rot.turn_off()
 		a_f_gruen.turn_off()
+		
