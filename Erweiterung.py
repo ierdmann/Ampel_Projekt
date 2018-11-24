@@ -18,8 +18,7 @@ a_f_gruen = pfd.output_pins[3]
 a_f_rot = pfd.output_pins[4]
 schalter = pfd.input_pins[7]
 
-def n():
-	time.sleep(n)
+
 
 def status_anzeigen():
 	print("TODO")
@@ -34,27 +33,30 @@ def ausschalten():
 
 atexit.register(ausschalten)
 
-def countdown():
-	if n == n+"10M":
-		a_v_gruen.turn_on()
+def Zeit():
+	if int(time.time())-n == 100:
+		print("Ampel_aus")
+		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
 		a_f_rot.turn_on()
 		a_f_gruen.turn_off()
+
 # Hauptprogramm
 
-while schalter.value == True:
+n = int(time.time())
+while True:
 #	print("Initialisiere Durchfahrt Verkehr")
 	a_v_gruen.turn_on()
 	a_v_gelb.turn_off()
 	a_v_rot.turn_off()
 	a_f_rot.turn_on()
 	a_f_gruen.turn_off()
-	countdown()
+	Zeit()
+	
 
 	
 	if schalter.value == True:
-		n = 0
 		print("Schalter aktiviert")
 		time.sleep(3)
 		a_v_gelb.turn_on()
@@ -78,6 +80,7 @@ while schalter.value == True:
 		a_v_rot.turn_off()
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
-		n = time.strftime("%M")
-	
+		n = int(time.time())
+	else:
+		
 		
