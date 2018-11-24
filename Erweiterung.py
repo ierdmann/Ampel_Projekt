@@ -42,14 +42,19 @@ def Zeit():
 	
 	if int(time.time())-n >= 10:
 		b = 1
-		print("Ampel_aus")
-		return
+		print("Ampel_aus", n)
+		break
 
 # Hauptprogramm
 b = 0
 n = int(time.time())
 while True:
 #	print("Initialisiere Durchfahrt Verkehr")
+	a_v_gruen.turn_on()
+	a_v_gelb.turn_off()
+	a_v_rot.turn_off()
+	a_f_rot.turn_on()
+	a_f_gruen.turn_off()
 	Zeit()
 	
 	
@@ -88,12 +93,8 @@ while True:
 		a_v_rot.turn_off()
 		a_f_rot.turn_on()
 		a_f_gruen.turn_off()
-		break	
-	else:
-		a_v_gruen.turn_on()
-		a_v_gelb.turn_off()
-		a_v_rot.turn_off()
-		a_f_rot.turn_on()
-		a_f_gruen.turn_off()
+		input	
+
+		
 		
 		
