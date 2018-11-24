@@ -82,7 +82,7 @@ while True:
 		n = int(time.time())
 		b = 0
 
-	if b == 1:
+	elif b == 1:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
