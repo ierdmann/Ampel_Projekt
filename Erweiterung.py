@@ -40,7 +40,7 @@ def Zeit():
 		return
 
 # Hauptprogramm
-
+b = 0
 n = int(time.time())
 while True:
 #	print("Initialisiere Durchfahrt Verkehr")
