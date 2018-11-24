@@ -35,7 +35,7 @@ atexit.register(ausschalten)
 
 def Zeit():
 	if int(time.time())-n >= 100:
-		b = True
+		b = 1
 		print("Ampel_aus")
 		return
 
@@ -74,9 +74,9 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-		b = False
+		b = 0
 
-	if b == True:
+	if b == 1:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
