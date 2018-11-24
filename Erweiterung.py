@@ -43,7 +43,7 @@ def Zeit():
 	if int(time.time())-n >= 10:
 		b = 1
 		print("Ampel_aus", n)
-		input(schalter.on())
+		input(schalter.value == True)
 
 # Hauptprogramm
 b = 0
