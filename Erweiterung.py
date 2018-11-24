@@ -92,7 +92,7 @@ while True:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
-		a_f_rot.turn_on()
+		a_f_rot.turn_off()
 		a_f_gruen.turn_off()
 		
 
