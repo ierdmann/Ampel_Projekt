@@ -43,7 +43,7 @@ def Zeit():
 	if int(time.time())-n >= 10:
 		b = 1
 		print("Ampel_aus", n)
-		break
+		
 
 # Hauptprogramm
 b = 0
@@ -56,6 +56,7 @@ while True:
 	a_f_rot.turn_on()
 	a_f_gruen.turn_off()
 	Zeit()
+	break
 	
 	
 
