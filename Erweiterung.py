@@ -43,7 +43,7 @@ def Zeit():
 	if int(time.time())-n >= 10:
 		b = 1
 		print("Ampel_aus", n)
-		input(schalter)
+		input(b == 1)
 
 # Hauptprogramm
 b = 0
@@ -62,6 +62,7 @@ while True:
 
 	
 	if schalter.value == True:
+		b = 1
 		print("Schalter aktiviert")
 		time.sleep(3)
 		a_v_gelb.turn_on()
