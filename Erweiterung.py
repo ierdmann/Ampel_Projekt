@@ -37,7 +37,7 @@ def Zeit():
 	a_v_gruen.turn_off()
 	a_v_gelb.turn_off()
 	a_v_rot.turn_off()
-	a_f_rot.turn_on()
+	a_f_rot.turn_off()
 	a_f_gruen.turn_off()
 	
 	if int(time.time())-n >= 10:
@@ -88,13 +88,7 @@ while True:
 		n = int(time.time())
 		b = 0
 
-	elif b == 1:
-		a_v_gruen.turn_off()
-		a_v_gelb.turn_off()
-		a_v_rot.turn_off()
-		a_f_rot.turn_off()
-		a_f_gruen.turn_off()
-		
+	
 
 		
 		
