@@ -35,13 +35,13 @@ atexit.register(ausschalten)
 
 def Zeit():
 	if int(time.time())-n >= 100:
-		print("Ampel_aus")
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
 		a_f_rot.turn_on()
 		a_f_gruen.turn_off()
-
+		print("Ampel_aus")
+		return
 
 # Hauptprogramm
 
