@@ -34,7 +34,7 @@ def ausschalten():
 atexit.register(ausschalten)
 
 def Zeit():
-	if int(time.time())-n >= 100:
+	if int(time.time())-n >= 10:
 		b = 1
 		print("Ampel_aus")
 		return
