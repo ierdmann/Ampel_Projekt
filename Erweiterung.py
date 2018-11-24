@@ -54,6 +54,7 @@ while True:
 	a_f_rot.turn_on()
 	a_f_gruen.turn_off()
 	Zeit()
+	break
 	
 
 	
