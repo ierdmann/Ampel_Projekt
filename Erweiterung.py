@@ -17,7 +17,7 @@ a_v_rot = pfd.output_pins[7]
 a_f_gruen = pfd.output_pins[3]
 a_f_rot = pfd.output_pins[4]
 schalter = pfd.input_pins[7]
-s = eval(input(schalter))
+
 
 
 def status_anzeigen():
@@ -33,22 +33,19 @@ def ausschalten():
 
 atexit.register(ausschalten)
 
-def read():
-	if schalter.value == True:
-		print("Wieder_an")
-
+eingabe = eval(input(schalter))
 
 def Zeit():
+	input(schalter)
 	
-	print("Alle_Lampen_aus")
-	if int(time.time())-n >= 10:
+	if int(time.time())-n >= 10 and schalter.value == False:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
 		a_f_rot.turn_off()
 		a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
 		print("Ampel_aus seit:", int(time.time())-n)
-		s()
+		eingabe
 	if schalter.value == True:	
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
