@@ -39,13 +39,14 @@ def read():
 
 
 def Zeit():
-	a_v_gruen.turn_off()
-	a_v_gelb.turn_off()
-	a_v_rot.turn_off()
-	a_f_rot.turn_off()
-	a_f_gruen.turn_off()
+	
 	print("Alle_Lampen_aus")
-	if int(time.time())-n >= 10:  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
+	if int(time.time())-n >= 10:
+		a_v_gruen.turn_off()
+		a_v_gelb.turn_off()
+		a_v_rot.turn_off()
+		a_f_rot.turn_off()
+		a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
 		print("Ampel_aus seit:", int(time.time())-n)
 	if schalter.value == True:	
 		a_v_gruen.turn_off()
