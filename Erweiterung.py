@@ -33,10 +33,10 @@ def ausschalten():
 
 atexit.register(ausschalten)
 
-eingabe = input(schalter)
+#eingabe = input(schalter)
 
 def Zeit():
-	input(schalter)
+	# input(schalter)
 	
 	if int(time.time())-n >= 10 and schalter.value == False:
 		a_v_gruen.turn_off()
