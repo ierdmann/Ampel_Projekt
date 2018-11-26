@@ -45,7 +45,7 @@ def Zeit():
 		a_f_rot.turn_off()
 		a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
 		print("Ampel_aus seit:", int(time.time())-n)
-		eingabe
+		#eingabe
 	if schalter.value == True:	
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
