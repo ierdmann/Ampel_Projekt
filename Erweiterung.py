@@ -44,21 +44,28 @@ def Zeit():
 	a_v_rot.turn_off()
 	a_f_rot.turn_off()
 	a_f_gruen.turn_off()
-	
-	if int(time.time())-n >= 10:
-		b = 1
-		print("Ampel_aus", n)
-		read()
+	print("Alle_Lampen_aus")
+	if int(time.time())-n >= 10:  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
+		print("Ampel_aus seit:", int(time.time())-n)
+	if schalter.value == True:	
+		a_v_gruen.turn_off()
+		a_v_gelb.turn_off()
+		a_v_rot.turn_on()
+		a_f_rot.turn_on()
+		a_f_gruen.turn_off()
+		print("Verkehrs_Ampel_und_Fusssgaengerampel_rot")
 
 # Hauptprogramm
-b = 0
+
 n = int(time.time())
 while True:
 #	print("Initialisiere Durchfahrt Verkehr")
 	a_v_gruen.turn_on()
+	print("Ampel_Verkehr=gruen")
 	a_v_gelb.turn_off()
 	a_v_rot.turn_off()
 	a_f_rot.turn_on()
+	print("Ampel_Fussgaenger=rot")
 	a_f_gruen.turn_off()
 	Zeit()
 	
@@ -71,13 +78,16 @@ while True:
 		print("Schalter aktiviert")
 		time.sleep(3)
 		a_v_gelb.turn_on()
+		print("Ampel_Verkehr=gelb")
 		a_v_gruen.turn_off()
 		time.sleep(1)
 		a_v_rot.turn_on()
+		print("Ampel_Verkehr=rot")
 		a_v_gelb.turn_off()
 		time.sleep(3)
 		print("Verkehr gestoppt. Fussgaenger gruen")
 		a_f_gruen.turn_on()
+		print("Ampel_Fussgaenger=gruen")
 		a_f_rot.turn_off()
 		time.sleep(5)
 		print("Fussgaenger-Phase beendet")
@@ -92,7 +102,7 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-		b = 0
+		
 
 	
 

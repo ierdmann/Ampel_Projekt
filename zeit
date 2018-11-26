@@ -1,0 +1,9 @@
+import time
+
+def Zeit():
+	if n == time.strfime("%M", 1):
+		print(n)
+
+while True:
+	n = time.strftime("%M")
+	Zeit()
