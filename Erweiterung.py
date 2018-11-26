@@ -33,7 +33,7 @@ def ausschalten():
 
 atexit.register(ausschalten)
 
-eingabe = eval(input(schalter))
+eingabe = int(input(schalter))
 
 def Zeit():
 	input(schalter)
