@@ -17,7 +17,7 @@ a_v_rot = pfd.output_pins[7]
 a_f_gruen = pfd.output_pins[3]
 a_f_rot = pfd.output_pins[4]
 schalter = pfd.input_pins[7]
-s = input(schalter)
+s = eval(input(schalter))
 
 
 def status_anzeigen():
