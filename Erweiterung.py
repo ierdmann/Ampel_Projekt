@@ -34,7 +34,7 @@ def ausschalten():
 atexit.register(ausschalten)
 
 #eingabe = input(schalter)
-z = 0
+
 def Zeit():
 	while int(time.time())-n <= 10:
 		#print("Initialisiere Durchfahrt Verkehr")
@@ -70,7 +70,6 @@ while True:
 
 	
 	if schalter.value == True:
-		z = 0
 		a_f_rot.turn_on()
 		a_v_gruen.turn_on()
 		print("Schalter aktiviert")
