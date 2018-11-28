@@ -37,7 +37,7 @@ atexit.register(ausschalten)
 z = int(time.time())
 def Zeit():
 
-		if int(time.time())-n >= 10:
+		if int(time.time())-n >= 500:
 			z = z-n 
 		
 	
@@ -80,7 +80,7 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-	if z >=10:
+	if z >=500:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
