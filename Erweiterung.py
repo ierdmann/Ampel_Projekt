@@ -42,7 +42,7 @@ def Zeit():
 		
 	
 # Hauptprogramm
-
+z = 0
 n = int(time.time())
 while True:
 #	
