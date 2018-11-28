@@ -55,7 +55,7 @@ def Zeit():
 			a_f_rot.turn_off()
 			a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
 			print("Ampel_aus seit:", int(time.time())-n, "Sekunden")
-			time.sleep(4)		
+			time.sleep(1)
 		
 	
 # Hauptprogramm
