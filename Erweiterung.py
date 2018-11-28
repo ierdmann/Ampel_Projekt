@@ -71,7 +71,7 @@ while True:
 	
 	if schalter.value == True:
 		z = 0
-		a_f_gruen.turn_off()
+		a_f_rot.turn_on()
 		a_v_gruen.turn_on()
 		print("Schalter aktiviert")
 		time.sleep(3)
