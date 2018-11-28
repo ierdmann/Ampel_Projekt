@@ -38,7 +38,7 @@ z = 0
 def Zeit():
 
 		if int(time.time())-n >= 10:
-			z = 1
+			z = int(time.time())-n
 		
 	
 # Hauptprogramm
@@ -81,7 +81,7 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-	if z == 1:
+	if z >=10:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
