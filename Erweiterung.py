@@ -36,16 +36,7 @@ atexit.register(ausschalten)
 #eingabe = input(schalter)
 z = 0
 def Zeit():
-	while int(time.time())-n >= 10:
-		a_v_gruen.turn_off()
-		a_v_gelb.turn_off()
-		a_v_rot.turn_off()
-		a_f_rot.turn_off()
-		a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
-		print("Ampel_aus seit:", int(time.time())-n, "Sekunden")
-		time.sleep(4)
-
-		if int(time.time())-n <= 10 or schalter.value == True:
+	while int(time.time())-n <= 10:
 			#print("Initialisiere Durchfahrt Verkehr")
 			a_v_gruen.turn_on()
 			#print("Ampel_Verkehr=gruen")
@@ -54,7 +45,17 @@ def Zeit():
 			a_f_rot.turn_on()
 			#print("Ampel_Fussgaenger=rot")
 			a_f_gruen.turn_off()
-			print(n)	
+			print(n)
+		
+
+		if int(time.time())-n >=10 or schalter.value !=True:
+			a_v_gruen.turn_off()
+			a_v_gelb.turn_off()
+			a_v_rot.turn_off()
+			a_f_rot.turn_off()
+			a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
+			print("Ampel_aus seit:", int(time.time())-n, "Sekunden")
+			time.sleep(4)		
 		
 	
 # Hauptprogramm
