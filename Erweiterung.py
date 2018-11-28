@@ -48,7 +48,7 @@ def Zeit():
 			print(n)
 		
 
-		if int(time.time())-n >= 10 or schatlter.value != True:
+		if int(time.time())-n >= 10:
 			a_v_gruen.turn_off()
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
