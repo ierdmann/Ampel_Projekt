@@ -34,7 +34,7 @@ def ausschalten():
 atexit.register(ausschalten)
 
 #eingabe = input(schalter)
-
+z = 0
 def Zeit():
 
 		if int(time.time())-n >= 10:
@@ -42,7 +42,7 @@ def Zeit():
 		
 	
 # Hauptprogramm
-z = 0
+
 n = int(time.time())
 while True:
 #	
