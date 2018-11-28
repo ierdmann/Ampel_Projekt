@@ -34,11 +34,11 @@ def ausschalten():
 atexit.register(ausschalten)
 
 #eingabe = input(schalter)
-z = int(time.time())
+z = 0
 def Zeit():
 
-		if int(time.time())-n >= 500:
-			z = z-n 
+		if int(time.time())-n >= 10:
+			z = 1
 		
 	
 # Hauptprogramm
@@ -53,6 +53,7 @@ while True:
 
 	
 	if schalter.value == True:
+		z = 0
 		print("Schalter aktiviert")
 		time.sleep(3)
 		a_v_gelb.turn_on()
@@ -80,7 +81,7 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-	if z >=500:
+	if z == 1:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_off()
 		a_v_rot.turn_off()
