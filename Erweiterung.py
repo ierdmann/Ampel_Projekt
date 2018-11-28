@@ -37,15 +37,15 @@ atexit.register(ausschalten)
 z = 0
 def Zeit():
 	while int(time.time())-n <= 10:
-			#print("Initialisiere Durchfahrt Verkehr")
-			a_v_gruen.turn_on()
-			#print("Ampel_Verkehr=gruen")
-			a_v_gelb.turn_off()
-			a_v_rot.turn_off()
-			a_f_rot.turn_on()
-			#print("Ampel_Fussgaenger=rot")
-			a_f_gruen.turn_off()
-			print(n)
+		#print("Initialisiere Durchfahrt Verkehr")
+		a_v_gruen.turn_on()
+		#print("Ampel_Verkehr=gruen")
+		a_v_gelb.turn_off()
+		a_v_rot.turn_off()
+		a_f_rot.turn_on()
+		#print("Ampel_Fussgaenger=rot")
+		a_f_gruen.turn_off()
+		print(n)
 		
 
 		if int(time.time())-n >= 10:
