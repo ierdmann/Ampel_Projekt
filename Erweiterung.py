@@ -102,7 +102,7 @@ while True:
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
 		z = 0
-	if int(time.time())-n >= t and schalter.value == True:
+	if int(time.time())-n >= t and schalter.value == True and z != 1:
 		a_v_rot.turn_on()
 		a_f_rot.turn_on()
 		time.sleep(4)
