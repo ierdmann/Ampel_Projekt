@@ -35,7 +35,7 @@ atexit.register(ausschalten)
 
 #eingabe = input(schalter)
 print("Bitte gebe eine Zeit in Sekunden an:")
-t = input()
+t = int(input())
 z = 0
 
 def Zeit():
