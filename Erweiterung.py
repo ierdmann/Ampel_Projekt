@@ -37,7 +37,7 @@ atexit.register(ausschalten)
 print("Bitte gebe eine Zeit in Sekunden an:")
 t = int(input())
 z = 0
-
+b = 0
 def Zeit():
 	while int(time.time())-n <= t and schalter.value != True:
 		#print("Initialisiere Durchfahrt Verkehr")
@@ -52,6 +52,7 @@ def Zeit():
 		
 
 		if int(time.time())-n >= t:
+			b = 1
 			a_v_gruen.turn_off()
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
@@ -110,20 +111,20 @@ while True:
 		a_v_gruen.turn_on()
 		z = 1
 
-	if schleife.value == True and z != 1 and schalter.value != True:
-		a_v_rot.turn_on()
-		a_f_rot.turn_on()
-		time.sleep(4)
-		a_v_gelb.turn_on()
-		time.sleep(2)
-		a_v_rot.turn_off()
-		time.sleep(2)
-		a_v_gelb.turn_off()
-		a_v_gruen.turn_on()
-		time.sleep(10)
-		a_v_gruen.turn_off()
-		a_v_gelb.turn_on()
-		a_v_rot.turn_on()
-		time.sleep(1)
-		a_v_gelb.turn_on()
-		time.sleep(1)
+	#if schleife.value == True and z != 1 and schalter.value != True:
+	#	a_v_rot.turn_on()
+	#	a_f_rot.turn_on()
+	#	time.sleep(4)
+	#	a_v_gelb.turn_on()
+	#	time.sleep(2)
+	#	a_v_rot.turn_off()
+	#	time.sleep(2)
+	#	a_v_gelb.turn_off()
+	#	a_v_gruen.turn_on()
+	#	time.sleep(10)
+	#	a_v_gruen.turn_off()
+	#	a_v_gelb.turn_on()
+	#	a_v_rot.turn_on()
+	#	time.sleep(1)
+	#	a_v_gelb.turn_on()
+	#	time.sleep(1)
