@@ -34,9 +34,12 @@ def ausschalten():
 atexit.register(ausschalten)
 
 #eingabe = input(schalter)
+print("Bitte gebe eine Zeit in Sekunden an:")
+t = input()
+z = 0
 
 def Zeit():
-	while int(time.time())-n <= 10 and schalter.value != True:
+	while int(time.time())-n <= t and schalter.value != True:
 		#print("Initialisiere Durchfahrt Verkehr")
 		a_v_gruen.turn_on()
 		#print("Ampel_Verkehr=gruen")
@@ -48,7 +51,7 @@ def Zeit():
 		print(n)
 		
 
-		if int(time.time())-n >= 10:
+		if int(time.time())-n >= t:
 			a_v_gruen.turn_off()
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
@@ -62,14 +65,13 @@ def Zeit():
 
 n = int(time.time())
 while True:
-	print(schleife.value)
 	Zeit()
 	
 	
 	
 
 	
-	if schalter.value == True:
+	if schalter.value == True and int(time.time())-n <= t or z == 1:
 		a_f_rot.turn_on()
 		a_v_gruen.turn_on()
 		print("Schalter aktiviert")
@@ -99,7 +101,12 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-	
+		z = 0
+	if int(time.time())-n >= t and schalter.value == True:
+		a_v_rot.turn_on()
+		a_f_rot.turn_on()
+		time.sleep(4)
+		z = 1
 		
 
 		
