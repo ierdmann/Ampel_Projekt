@@ -62,7 +62,7 @@ def Zeit():
 
 n = int(time.time())
 while True:
-	print(schleife.value())
+	print(schleife.value)
 	Zeit()
 	
 	
