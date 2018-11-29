@@ -12,7 +12,7 @@ pfd = pifacedigitalio.PiFaceDigital()
 a_v_gruen = pfd.output_pins[5]
 a_v_gelb = pfd.output_pins[6]
 a_v_rot = pfd.output_pins[7]
-
+schleife = pfd.input_pins[6]
 # f = Fussgaenger
 a_f_gruen = pfd.output_pins[3]
 a_f_rot = pfd.output_pins[4]
@@ -62,7 +62,7 @@ def Zeit():
 
 n = int(time.time())
 while True:
-#	
+	print(schleife.value())
 	Zeit()
 	
 	
