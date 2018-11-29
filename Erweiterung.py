@@ -110,7 +110,7 @@ while True:
 		a_v_gruen.turn_on()
 		z = 1
 
-	if schleife.value == True and z != 1 schalter.value != True:
+	if schleife.value == True and z != 1 and schalter.value != True:
 		a_v_rot.turn_on()
 		a_f_rot.turn_on()
 		time.sleep(4)
