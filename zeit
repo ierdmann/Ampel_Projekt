@@ -1,9 +1,10 @@
-import time
-
+import time												# t muss noch als Zahl definiert werden
+n = int(time.time())
 def Zeit():
-	if n == time.strfime("%M", 1):
-		print(n)
+	while int(time.time())-n <= t and schalter.value != True:
+		
+		print("Es sind", int(time.time())-n, "Sekunden vergangen!")
+		
 
-while True:
-	n = time.strftime("%M")
-	Zeit()
+		if int(time.time())-n >= t:		# Zeit wird verglichen 
+			print("Nun sind schon", int(time.time())-n, "Sekunden vergangen")
