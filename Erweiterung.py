@@ -1,5 +1,7 @@
 # Ampel Projekt
-#Versuch einen Countdown zu integrieren
+#Erweiterung der basis Ampelschaltung
+# Ein Timer ist implementiert worden, durch vergleich von Zeit.
+# es wurde zu diesem Zweck UNIX Zeit verwendet da es sich um eine vordlaufende Zahl handelt
 import time
 import pifacedigitalio
 import atexit
@@ -33,11 +35,12 @@ def ausschalten():
 
 atexit.register(ausschalten)
 
-#eingabe = input(schalter)
-print("Bitte gebe eine Zeit in Sekunden an:")
-t = int(input())
-z = 0
+
+print("Bitte gebe eine Zeit in Sekunden an:") # Bevor das Programm startet, muss eine Zeit in Sekunden eingegeben werden mit dem das 
+t = int(input())   							  # Programm arbeitet. 
+z = 0		# Zyklus Variable um einen Schalter zu verlängern
 b = 0
+# Funktion um Zeit zu vergleichen 
 def Zeit():
 	while int(time.time())-n <= t and schalter.value != True:
 		#print("Initialisiere Durchfahrt Verkehr")
@@ -51,8 +54,8 @@ def Zeit():
 		print(n)
 		
 
-		if int(time.time())-n >= t:
-			b = 1
+		if int(time.time())-n >= t:		# Zeit wird verglichen und wenn t geich der wahr ist die Ampel abgeschaltet
+			b = 1					# schaltet die Schleife frei wenn die Ampel aus ist, um den Schleifenprozess frei zugeben
 			a_v_gruen.turn_off()
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
@@ -64,9 +67,9 @@ def Zeit():
 	
 # Hauptprogramm
 
-n = int(time.time())
+n = int(time.time())		# bei Programmstart wird die Zeit in "n" gespeichert
 while True:
-	Zeit()
+	Zeit()					# fortwährend wird die Funktion Zeit geprüft und ausgeführt
 	
 	
 	
@@ -103,7 +106,7 @@ while True:
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
 		z = 0
-	if int(time.time())-n >= t and schalter.value == True and z != 1:
+	elif int(time.time())-n >= t and schalter.value == True and z != 1:
 		a_v_rot.turn_on()
 		a_f_rot.turn_on()
 		time.sleep(4)
@@ -111,7 +114,7 @@ while True:
 		a_v_gruen.turn_on()
 		z = 1
 
-	if schleife.value == True: # and z != 1 and schalter.value != True and b == 1:
+	elif schleife.value == True and z != 1 and schalter.value != True and b == 1:
 		a_v_rot.turn_on()
 		a_f_rot.turn_on()
 		time.sleep(4)
