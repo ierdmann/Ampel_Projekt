@@ -39,9 +39,8 @@ atexit.register(ausschalten)
 print("Bitte gebe eine Zeit in Sekunden an:") # Bevor das Programm startet, muss eine Zeit in Sekunden eingegeben werden mit dem das 
 t = int(input())   							  # Programm arbeitet. 
 z = int(0)		# Zyklus Variable um einen Schalter zu verlängern
-b = int(0)
-n = int(time.time())
-x = int(time.time())
+n = int(time.time())		#Zeitspeicher für das Abschalten der Ampel nach der gewählten Zeit bei Programmstart
+x = int(time.time())		#Zeitspeicher für die Reaktivierung der Kontaktschleife um die 10 Sekunden einzuhalten
 # Funktion um Zeit zu vergleichen 
 def Zeit():
 	while int(time.time())-n <= t and schalter.value != True:
@@ -53,12 +52,11 @@ def Zeit():
 		a_f_rot.turn_on()
 		#print("Ampel_Fussgaenger=rot")
 		a_f_gruen.turn_off()
-		print(int(time.time())-n)
+		print(int(time.time())-n)		#Zeigt die Zeit welch nach Programmstart vergangen ist
 		
 
-		if int(time.time())-n >= t:		# Zeit wird verglichen und wenn t geich der wahr ist die Ampel abgeschaltet
-			b = int(1)					# schaltet die Schleife frei wenn die Ampel aus ist, um den Schleifenprozess frei zugeben
-			a_v_gruen.turn_off()
+		if int(time.time())-n >= t:		# Zeit wird verglichen und wenn t geich der wahr ist die Ampel abgeschalte	
+			a_v_gruen.turn_off()		# schaltet die Schleife frei wenn die Ampel aus ist, um den Schleifenprozess frei zugeben
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
 			a_f_rot.turn_off()
@@ -69,7 +67,7 @@ def Zeit():
 	
 # Hauptprogramm
 
-		# bei Programmstart wird die Zeit in "n" gespeichert
+									
 while True:
 	Zeit()					# fortwährend wird die Funktion Zeit geprüft und ausgeführt
 	print("Ampel aus seit:", int(time.time())-n, "Sekunden")
@@ -77,9 +75,9 @@ while True:
 	
 
 	
-	if schalter.value == True and int(time.time())-n <= t or z == 1:
-		a_f_rot.turn_on()
-		a_v_gruen.turn_on()
+	if schalter.value == True and int(time.time())-n <= t or z == 1: #Solange die Ampel an ist wird diese Schaltsequenz abgearbeitet
+		a_f_rot.turn_on()											#Bedingung sind das die gemessene Zeit kleiner als die Eingegebene Zeit
+		a_v_gruen.turn_on()											#ist
 		print("Schalter aktiviert")
 		time.sleep(3)
 		a_v_gelb.turn_on()
@@ -107,18 +105,17 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-		z = int(0)
-		b = int(0)
-	elif int(time.time())-n >= t and schalter.value == True:
-		a_v_rot.turn_on()
-		a_f_rot.turn_on()
-		time.sleep(4)
+		
+	elif int(time.time())-n >= t and schalter.value == True:	#Ist die Ampel nach der gewählten Zeit ausgegangen und der Schalter
+		a_v_rot.turn_on()										#wird gedrückt, wird Verkehrsampel und Fußgänger Ampel rot
+		a_f_rot.turn_on()										#und folgt einem bestimmten Ablauf. Am ende begint dann der normale 
+		time.sleep(4)											#Fußgängerzyklus
 		a_v_rot.turn_off()
 		a_v_gruen.turn_on()
 		z = int(1)
 
-	elif schleife.value == True and schalter.value != True and int(time.time())-x >= 10:
-		print("Schleife aktiv")
+	elif schleife.value == True and schalter.value != True and int(time.time())-x >= 10: #Eine Kontaktschleife wird durch Fahrzeuge ausgelöst
+		print("Schleife aktiv")															#welche im Boden 500m vor der Ampel plaziert ist
 		a_f_rot.turn_on()
 		a_v_rot.turn_on()
 		time.sleep(4)
@@ -139,8 +136,8 @@ while True:
 		x = int(time.time())
 		print("Schleife beendet")
 		
-	elif schleife.value == True and schalter.value != True and int(time.time())-x <=10:
-		print("Schleife erneut aktiviert")
+	elif schleife.value == True and schalter.value != True and int(time.time())-x <=10:	#Wird die Kontaktschleife erneut  innerhalb 
+		print("Schleife erneut aktiviert")												#überfahren, bleibt die Ampel grün und geht wieder aus
 		a_v_gruen.turn_on()
 		a_f_rot.turn_on()
 		time.sleep(3)
