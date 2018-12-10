@@ -38,8 +38,10 @@ atexit.register(ausschalten)
 
 print("Bitte gebe eine Zeit in Sekunden an:") # Bevor das Programm startet, muss eine Zeit in Sekunden eingegeben werden mit dem das 
 t = int(input())   							  # Programm arbeitet. 
-z = 0		# Zyklus Variable um einen Schalter zu verlängern
-b = 0
+z = int(0)		# Zyklus Variable um einen Schalter zu verlängern
+b = int(0)
+n = int(time.time())
+x = int(time.time())
 # Funktion um Zeit zu vergleichen 
 def Zeit():
 	while int(time.time())-n <= t and schalter.value != True:
@@ -51,26 +53,26 @@ def Zeit():
 		a_f_rot.turn_on()
 		#print("Ampel_Fussgaenger=rot")
 		a_f_gruen.turn_off()
-		print(n)
+		print(int(time.time())-n)
 		
 
 		if int(time.time())-n >= t:		# Zeit wird verglichen und wenn t geich der wahr ist die Ampel abgeschaltet
-			b = 1					# schaltet die Schleife frei wenn die Ampel aus ist, um den Schleifenprozess frei zugeben
+			b = int(1)					# schaltet die Schleife frei wenn die Ampel aus ist, um den Schleifenprozess frei zugeben
 			a_v_gruen.turn_off()
 			a_v_gelb.turn_off()
 			a_v_rot.turn_off()
 			a_f_rot.turn_off()
 			a_f_gruen.turn_off()  						#Wenn die aktuelle Zeit minus der gespeicherten Zeit gleich 10. Dann Ampel aus.
-			print("Ampel_aus seit:", int(time.time())-n, "Sekunden")
+			print("Ampel aus!")
 			
 		
 	
 # Hauptprogramm
 
-n = int(time.time())		# bei Programmstart wird die Zeit in "n" gespeichert
+		# bei Programmstart wird die Zeit in "n" gespeichert
 while True:
 	Zeit()					# fortwährend wird die Funktion Zeit geprüft und ausgeführt
-	
+	print("Ampel aus seit:", int(time.time())-n, "Sekunden")
 	
 	
 
@@ -105,18 +107,20 @@ while True:
 		a_v_gelb.turn_off()
 		print("Fussgaenger-phase beendet")
 		n = int(time.time())
-		z = 0
-	elif int(time.time())-n >= t and schalter.value == True and z != 1:
+		z = int(0)
+		b = int(0)
+	elif int(time.time())-n >= t and schalter.value == True:
 		a_v_rot.turn_on()
 		a_f_rot.turn_on()
 		time.sleep(4)
 		a_v_rot.turn_off()
 		a_v_gruen.turn_on()
-		z = 1
+		z = int(1)
 
-	elif schleife.value == True and z != 1 and schalter.value != True and b == 1:
-		a_v_rot.turn_on()
+	elif schleife.value == True and schalter.value != True and int(time.time())-x >= 10:
+		print("Schleife aktiv")
 		a_f_rot.turn_on()
+		a_v_rot.turn_on()
 		time.sleep(4)
 		a_v_gelb.turn_on()
 		time.sleep(2)
@@ -128,7 +132,18 @@ while True:
 		a_v_gruen.turn_off()
 		a_v_gelb.turn_on()
 		a_v_rot.turn_on()
-		time.sleep(1)
-		a_v_gelb.turn_on()
-		time.sleep(1)
-		b = 0
+		time.sleep(2)
+		a_v_rot.turn_off()
+		a_f_rot.turn_off()
+		a_v_gelb.turn_off()
+		x = int(time.time())
+		print("Schleife beendet")
+		
+	elif schleife.value == True and schalter.value != True and int(time.time())-x <=10:
+		print("Schleife erneut aktiviert")
+		a_v_gruen.turn_on()
+		a_f_rot.turn_on()
+		time.sleep(3)
+		a_v_gruen.turn_off()
+		a_f_rot.turn_off()
+		print("Schleife beendet")
