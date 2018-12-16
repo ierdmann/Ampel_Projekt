@@ -1,0 +1,7 @@
+import Zeit.py
+
+print("Bitte wählen Sie eine Zeit in Sekunden:")
+t = int(input())
+
+while True:
+	Zeit()
